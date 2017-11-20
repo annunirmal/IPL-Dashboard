@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="IPL dashboard">
+    <meta name="author" content="">
+
+    <title>IPL Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- including chart.js -->
+    <script src="chart.min.js"></script>
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">IPL Dashboard</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/logo.png" alt="">
+        </span>
+      </a>
+      <i class="fa fa-lightbulb-o mobile-button" aria-hidden="true" style="color: #FFF;"></i>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#bowler">Bowlers' stat</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#venue">Venue Information</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#national-venue">national venues</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#players">Players' stat</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+		<!--<div class="mask"></div>-->
+    
+    <div class="pop dashboard-section">
+		  <span>✖</span>
+		  <h1>Did you know ?</h1>
+		  <p class="quote"></p>
+		  <button>More facts</button>
+		</div>
+
+
+    <div class="container-fluid p-0">
+
+    	<section class="p-3 p-lg-5 d-flex d-column fixed-top" id="top-bar">
+    		<div v-bind:title="title" class="my-auto" id="top-bar-button">
+    			<ul class="list-inline list-icons">
+            <li class="list-inline-item">
+              <i class="fa fa-lightbulb-o" aria-hidden="true" style="color: #FF9900"></i>
+            </li>
+          </ul>    			
+    		</div>
+    	</section>
+
+      <section class="dashboard-section p-3 p-lg-5 d-flex flex-column" id="home">
+        <div class="my-auto">
+          <canvas id="home-bar-chart" width="500" height="200"></canvas>
+        </div>
+        <ul>
+        	<li>There are total 577 matches played in IPL season.</li>
+        	<li>And total 166545 runs scored.</li>
+        </ul>
+      </section>
+
+      <section class="dashboard-section p-3 p-lg-5 d-flex flex-column" id="bowler">
+        <div class="my-auto">
+          <canvas id="bowlers-chart" width="500" height="200"></canvas>
+        </div>
+        <ul>
+        	<li>Average no balls and wide balls per match has decreased since 2008</li>
+        	<li>hence the performance of bowlers has improved</li>
+        </ul>
+      </section>
+
+      <section class="dashboard-section p-3 p-lg-5 d-flex flex-column" id="venue">
+        <div class="my-auto">
+          <canvas id="venue-chart" width="500" height="200"></canvas>
+        </div>
+        <ul>
+        	<li>There are 500 matches played in local fields and 77 in foreign land.</li>
+        	<li>IPL is going International !</li>
+        </ul>
+      </section>
+
+      <section class="dashboard-section p-3 p-lg-5 d-flex flex-column" id="national-venue">
+        <div class="my-auto">
+          <canvas id="national-chart" width="500" height="200"></canvas>
+        </div>
+        <ul>
+        	<li>Mumbai has hosted most of the matches, 77, in national fields</li>
+        	<li>Abu Dhabi is at the top for International matches hosting i.e. 20</li>
+        </ul>
+      </section>
+
+			<section class="dashboard-section p-3 p-lg-5 d-flex flex-column" id="players">
+        <div class="my-auto">
+          <canvas id="players-chart" width="500" height="200"></canvas>
+        </div>
+        <ul>
+        	<li>National players' performance has recognised internationally.</li>
+        	<li>18 players have been given a chance to show their leadership capabilities.</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <!--include vue.js -->
+    <script src="vue.min.js">  </script>
+    
+    <script>
+    	var app = new Vue({
+    		el:"#top-bar-button",
+    		data: {
+    			title: "Fun facts!"
+    		}
+    	});
+    </script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/dashboard.min.js"></script>
+
+  </body>
+
+</html>
